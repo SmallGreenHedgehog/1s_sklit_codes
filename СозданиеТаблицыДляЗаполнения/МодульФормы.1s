@@ -184,7 +184,7 @@
 		|	Conne.ID_GRP,
 		|	Client.NAME_CL,
 		|	Adr.FULL_ADDR,
-		|	LTRIM(RTRIM(Client.NAME_CL))+' | '+LTRIM(RTRIM(Adr.FULL_ADDR)) as NameAdr
+		|	LTRIM(RTRIM(Client.NAME_CL))+' , '+LTRIM(RTRIM(Adr.FULL_ADDR)) as NameAdr
 		|	
 		|FROM
 		|	Client
