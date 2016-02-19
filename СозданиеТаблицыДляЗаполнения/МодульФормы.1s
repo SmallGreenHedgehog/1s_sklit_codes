@@ -179,7 +179,7 @@
 		НачМил=_GetPerformanceCounter();		
 		ТекстДБФЗапроса = "
 		|SELECT 
-		|TOP 100
+		//|TOP 100
 		|	Client.ID_CL,
 		|	Conne.ID_GRP,
 		|	Client.NAME_CL,
