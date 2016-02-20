@@ -297,7 +297,7 @@
 				ТекПопыт=ТекПопыт+1;
 				Успех=1;
 				Попытка
-					Запрос.ВыполнитьИнструкцию("CREATE TABLE tmpCodeS (Id_Cl Numeric (4,0), Id_GRP Numeric (4,0), KOD Character (20,0))");
+					Запрос.ВыполнитьИнструкцию("CREATE TABLE tmpCodeS (Id_Cl Integer (4,0), Id_GRP Integer (4,0), KOD Character (20,0))");
 				Исключение
 					Успех=0; 
 					Сообщить(ОписаниеОшибки());
