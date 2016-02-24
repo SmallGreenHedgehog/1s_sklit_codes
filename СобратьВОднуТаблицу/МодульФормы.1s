@@ -78,7 +78,6 @@
 	Возврат СписФайловВКаталоге.РазмерСписка();
 КонецФункции   
 
-
 Процедура СоздатьЕдинуюТаблицу()
 	Перем СписИменФайлов, КолФайлов;
 	Перем База, Запрос,  ТекстДБФЗапроса, ТабДБФЗапроса;	
@@ -91,11 +90,12 @@
 	Если КолФайлов>0 Тогда		
 		//Запрос получения записей во всех файлах				
 		ТекстДБФЗапроса="
-		|INSERT INTO BIG_CODS (Id_Cl, Id_GRP, KOD)
+		|INSERT INTO BIG_CODS (Id_Cl, Id_GRP, KOD, DELETED)
 		|SELECT
 		|	Tables.ID_CL,
 		|	Tables.ID_GRP,
-		|	Tables.KOD
+		|	Tables.KOD,
+		|	'n'
 		|FROM
 		|	(";
 		
@@ -119,8 +119,8 @@
 		ТекстДБФЗапроса=Лев(ТекстДБФЗапроса, СтрДлина(ТекстДБФЗапроса)-10);
 		
 		ТекстДБФЗапроса=ТекстДБФЗапроса+") as Tables
-		|WHERE
-		|	Tables.ID_GRP<9999
+		//|WHERE
+		//|	Tables.ID_GRP<9999
 		|GROUP by 
 		|	Tables.ID_CL,
 		|	Tables.ID_GRP,
@@ -140,7 +140,7 @@
 				ТекПопыт=ТекПопыт+1;
 				Успех=1;
 				Попытка
-					Запрос.ВыполнитьИнструкцию("CREATE TABLE BIG_CODS (Id_Cl Integer (4,0), Id_GRP Integer (4,0), KOD Character (20,0))");
+					Запрос.ВыполнитьИнструкцию("CREATE TABLE BIG_CODS (Id_Cl Integer (4,0), Id_GRP Integer (4,0), KOD Character (20,0), DELETED Logical (1,0))");
 				Исключение
 					Успех=0; 
 					Сообщить(ОписаниеОшибки());

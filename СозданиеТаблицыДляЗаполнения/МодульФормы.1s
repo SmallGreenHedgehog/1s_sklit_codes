@@ -219,8 +219,8 @@
 			|	Client on Client.ID_CL=Conne.ID_CL
 			|INNER JOIN
 			|	Adr on Adr.ID_GRP=Conne.ID_GRP
-			|WHERE
-			|	Conne.ID_GRP>9997
+			//|WHERE
+			//|	Conne.ID_GRP>9997
 			|GROUP by
 			|	Conne.ID_CL,
 			|	Conne.ID_GRP,
